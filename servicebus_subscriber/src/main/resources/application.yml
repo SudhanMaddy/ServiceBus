@@ -4,9 +4,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    url: jdbc:sqlserver://localhost:1433;database=${DB_NAME:master};encrypt=true;trustServerCertificate=true;loginTimeout=30;
-    username: ${DB_USERNAME:Local}
-    password: ${DB_PASSWORD:Info@54321}
+    url: jdbc:sqlserver://localhost:1433;database=${DB_NAME:PRACTICE};encrypt=true;trustServerCertificate=true;loginTimeout=30;
+    username: ${DB_USERNAME:practice}
+    password: ${DB_PASSWORD:cmod@12345}
   jpa:
     database-platform: org.hibernate.dialect.SQLServer2012Dialect
     properties:
@@ -14,3 +14,14 @@ spring:
       hibernate.temp.use_jdbc_metadata_defaults: false
     hibernate:
       ddl-auto: none
+  kafka:
+    consumer:
+      bootstrap-servers: 10.79.36.244:9092
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: 10.79.36.244:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  
